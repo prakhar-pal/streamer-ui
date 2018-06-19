@@ -1,0 +1,77 @@
+.border{
+    border:1px solid #333;
+}
+.border-radius{
+    padding:2px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+.container{
+    margin:0px auto;
+}
+.search{
+    width: 80%;
+    margin:0px auto;
+    display:flex;
+    justify-content: space-between;
+}
+.search .search-box{
+    width: 800px;
+    height:30px;
+    border-radius: 10px;
+    margin: 5px;
+    text-align: center;
+    border:1px solid #222;
+}
+.searc .search-box:focus{
+    border:1px solid rgb(133, 133, 233);
+}
+.search .search-button{
+    width: 100px;
+    height:30px;
+    border-radius: 10px;
+    margin: 5px;
+    background-color: aliceblue;
+    border:1px solid #222;
+}
+.left {
+    float:left;
+}
+.left div{
+    overflow: hidden;
+}
+.video-container{
+    max-width: 800px;
+    max-height: 600px;
+}
+.content-view{
+    /* position: fixed; */
+    top:20px;
+    left:20px;
+    max-width: 80%;
+}
+.filename,.dirname{
+    padding: 10px;
+    cursor: pointer; /*to make it look like a link*/
+}
+.filename:hover,.dirname:hover{
+    background-color:#AAA;
+}
+.dirname{
+    background-color: #AAA;
+}
+.filename{
+    background-color: #DDD;
+}
+.right{
+    float:right;
+    width:30vw;
+    height: auto;
+    overflow-x:hidden;
+    overflow-y: auto;
+    height: 90vh; 
+}
+.back{
+    text-align: center;
+}

@@ -1,20 +1,48 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="body">
+  <div class="search">
+    <form [formGroup]="searchForm" >
+      <input type="text" class="search-box" formControlName="searchText" >
+      <button type="submit" class="search-button" (click)="search()">Search</button>
+      <!-- <p> forms values:{{searchForm.value|json}}</p> -->
+    </form>
+  </div>
+  <div class="">
+    <!-- START show content and list of content inside this container-->
+    <div class="container left content-view">
+      <!--START show content-->
+      <video *ngIf="showVideo" id="my-video" class="video-js vjs-default-skin" controls preload="auto" style="max-width:60vw;max-height:auto;margin-left:1vw"
+        poster="MY_VIDEO_POSTER.jpg" data-setup="{}" preload autoplay>
+        <source [src]="videoUrl" type="video/mp4">
+        <source [src]="videoUrl" type="video/ogg">
+        <source [src]="videoUrl" type="video/x-matroska">
+        <source [src]="videoUrl" type="video/webm">
+        <source [src]="videoUrl" type="video/avi">
+        <p class="vjs-no-js">
+          To view this video please enable JavaScript, and consider upgrading to a web browser that
+          <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+        </p>
+      </video>
+      <div *ngIf="showPhoto" class="photo">
+        <img [src]="photoUrl" style="background-size:cover;max-width:800px;max-height: 600px">
+      </div>
+    </div>
+    <!--END show content-->
 
+    <div class="container right border border-radius">
+      <!--START show list of contents-->
+      <!--used to show list of files-->
+      <div *ngIf="levels>0" class="back" (click)="goBack()">
+        <i class="fas fa-chevron-circle-left"></i>
+        Go back</div>
+      <div *ngFor="let dir of dirs;let i=index" class="dirname" (click)="openDir(dir.nameEncoded)">
+        <i class="fas fa-folder"></i>
+        {{dir.name}}</div>
+      <div *ngFor="let file of files;let i=index" class="filename" (click)="openFile(file.nameEncoded)">
+        <i class="fas fa-file"></i>
+        {{file.name}}</div>
+    </div>
+    <!--END show list of contents-->
+  </div>
+  <!-- END show content and list of content inside this container-->
+</div>
+<!--END of body-->
