@@ -17,18 +17,18 @@
     justify-content: space-between;
 }
 .search .search-box{
-    width: 800px;
+    width: 80%;
     height:30px;
     border-radius: 10px;
     margin: 5px;
     text-align: center;
     border:1px solid #222;
 }
-.searc .search-box:focus{
+.search .search-box:focus{
     border:1px solid rgb(133, 133, 233);
 }
 .search .search-button{
-    width: 100px;
+    width: 15%;
     height:30px;
     border-radius: 10px;
     margin: 5px;
@@ -54,14 +54,23 @@
 .filename,.dirname{
     padding: 10px;
     cursor: pointer; /*to make it look like a link*/
+    /* line-height: 10px; */
+}
+/* .filename div{
+   margin:10px;
+} */
+.filename>i,.dirname>i{
+    margin-right:5px;
 }
 .filename:hover,.dirname:hover{
     background-color:#AAA;
 }
 .dirname{
-    background-color: #AAA;
+    color: #333;
+    background-color: #DDD;
 }
 .filename{
+    color: #111;
     background-color: #DDD;
 }
 .right{
@@ -72,6 +81,36 @@
     overflow-y: auto;
     height: 90vh; 
 }
+.right div{
+    overflow-x: hidden;
+    overflow-y: auto;
+}
 .back{
     text-align: center;
+}
+
+@media screen and (max-width:900px){
+    .search .search-box{
+        width: 70%;
+    }
+    .search .search-button{
+        width: 10%;
+        min-width: 55px;
+    }
+    .left{
+        float: none;
+        height: 45vh;
+        overflow: auto;
+    }
+    .video-container{
+        /* margin: 0px 5vw; */
+        max-width: 100%;
+        max-height: 45vh;
+    }
+    .right{
+        float:none;
+        height: 45vh;
+        width: 90vw;
+        overflow:auto;
+    }
 }

@@ -6,7 +6,7 @@ import {FormGroup,FormBuilder} from '@angular/forms';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css','./app.component.videojs.css'],
+  styleUrls: ['./app.component.css','./app.component.videojs.css','./app.tooltip.component.css'],
 })
 //"http://vjs.zencdn.net/7.0.3/video-js.css",
 export class AppComponent {

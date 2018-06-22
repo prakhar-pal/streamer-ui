@@ -1,6 +1,6 @@
 <div class="body">
   <div class="search">
-    <form [formGroup]="searchForm" >
+    <form [formGroup]="searchForm" style="width: 100%">
       <input type="text" class="search-box" formControlName="searchText" >
       <button type="submit" class="search-button" (click)="search()">Search</button>
       <!-- <p> forms values:{{searchForm.value|json}}</p> -->
@@ -10,8 +10,9 @@
     <!-- START show content and list of content inside this container-->
     <div class="container left content-view">
       <!--START show content-->
-      <video *ngIf="showVideo" id="my-video" class="video-js vjs-default-skin" controls preload="auto" style="max-width:60vw;max-height:auto;margin-left:1vw"
+      <video *ngIf="showVideo" id="my-video" class="video-container " controls preload="auto"
         poster="MY_VIDEO_POSTER.jpg" data-setup="{}" preload autoplay>
+        <!-- video-js vjs-default-skin style="max-width:60vw;max-height:auto;margin-left:1vw" -->
         <source [src]="videoUrl" type="video/mp4">
         <source [src]="videoUrl" type="video/ogg">
         <source [src]="videoUrl" type="video/x-matroska">
@@ -23,7 +24,7 @@
         </p>
       </video>
       <div *ngIf="showPhoto" class="photo">
-        <img [src]="photoUrl" style="background-size:cover;max-width:800px;max-height: 600px">
+        <img [src]="photoUrl" style="display: block;margin:0px auto;background-size:cover;max-width:800px;max-height: 600px;">
       </div>
     </div>
     <!--END show content-->
@@ -34,11 +35,11 @@
       <div *ngIf="levels>0" class="back" (click)="goBack()">
         <i class="fas fa-chevron-circle-left"></i>
         Go back</div>
-      <div *ngFor="let dir of dirs;let i=index" class="dirname" (click)="openDir(dir.nameEncoded)">
+      <div *ngFor="let dir of dirs;let i=index" attr.data-tooltip="{{dir.name}}" class="dirname" (click)="openDir(dir.nameEncoded)">
         <i class="fas fa-folder"></i>
         {{dir.name}}</div>
       <div *ngFor="let file of files;let i=index" class="filename" (click)="openFile(file.nameEncoded)">
-        <i class="fas fa-file"></i>
+        <i class="fas fa-file file-icon"></i>
         {{file.name}}</div>
     </div>
     <!--END show list of contents-->
