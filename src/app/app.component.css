@@ -38,6 +38,8 @@
 .left {
     float:left;
     width:65%;
+    height: 90vh;
+    overflow: auto;
 }
 .left div{
     overflow: hidden;
@@ -92,10 +94,9 @@
 .right{
     float:right;
     width:30vw;
-    height: auto;
+    height: 90vh;
     overflow-x:hidden;
-    overflow-y: auto;
-    height: 90vh; 
+    overflow-y: auto;   
 }
 .right div{
     overflow-x: hidden;
@@ -119,7 +120,7 @@
 
 @media screen and (max-width:900px){
     .search .search-box{
-        width: 70%;
+        width: 80%;
     }
     .search .search-button{
         width: 10%;
@@ -128,7 +129,6 @@
     .left{
         float: none;
         height: 45vh;
-        overflow: auto;
     }
     .video-container{
         /* margin: 0px 5vw; */
@@ -136,9 +136,11 @@
         max-height: 45vh;
     }
     .image-container{
-        width:75vw;
+        width:90%;
+        box-shadow: 0 0 10px #333;
     }
     .right{
+        margin-top:1vh;
         float:none;
         height: 45vh;
         width: 90vw;

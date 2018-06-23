@@ -2,3 +2,22 @@
 body{
     background-color:rgb(238, 84, 110);
 }
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #000080; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #FFF8DC; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #2E8B57; 
+}
