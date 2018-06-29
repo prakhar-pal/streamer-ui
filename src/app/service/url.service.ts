@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UrlService {
-  host = "http://localhost:3000/";
+  host = "/";//"http://localhost:3000/";
   constructor() { }
   getHostAddress(){
     return this.host;

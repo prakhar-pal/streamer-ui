@@ -22,7 +22,7 @@
     border-radius: 10px;
     margin: 5px;
     text-align: center;
-    border:1px solid #222;
+    border:1px solid rgb(110, 9, 9);
 }
 .search .search-box:focus{
     border:1px solid rgb(133, 133, 233);
@@ -32,8 +32,8 @@
     height:30px;
     border-radius: 10px;
     margin: 5px;
-    background-color: aliceblue;
-    border:1px solid #222;
+    background-color: rgb(238, 84, 110);
+    border:1px solid rgb(238, 37, 70);
 }
 .left {
     float:left;
@@ -52,13 +52,13 @@
 }
 .image-container{
     display: block;
-    margin:0px auto;
+    margin:10px auto;
     background-size:cover;
     width:60%;
     height:auto;
-    -moz-box-shadow: 0 0 10px #ccc;
-    -webkit-box-shadow: 0 0 10px #000;
-    box-shadow: 0 0 10px #000;
+    -moz-box-shadow: 0 0 10px #333;
+    -webkit-box-shadow: 0 0 10px #333;
+    box-shadow: 0 0 10px #333;
 }
 .content-view{
     /* position: fixed; */
