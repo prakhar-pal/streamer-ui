@@ -6,11 +6,11 @@
       <!-- <p> forms values:{{searchForm.value|json}}</p> -->
     </form>
   </div>
-  <div class="">
+  <div>
     <!-- START show content and list of content inside this container-->
     <div class="container left content-view">
       <!--START show content-->
-      <video *ngIf="showVideo" id="my-video" class="video-container " controls preload="auto" poster="MY_VIDEO_POSTER.jpg" data-setup="{}"
+      <video *ngIf="showVideo" id="my-video" class="video-container " controls preload="auto" data-setup="{}"
         preload autoplay>
         <!-- video-js vjs-default-skin style="max-width:60vw;max-height:auto;margin-left:1vw" -->
         <source [src]="videoUrl" type="video/mp4">
@@ -29,17 +29,17 @@
     </div>
     <!--END show content-->
 
-    <div class="container right border border-radius">
+    <div class="container right border-radius">
       <!--START show list of contents-->
       <!--used to show list of files-->
       <div *ngIf="levels>0" class="back" (click)="goBack()">
         <i class="fas fa-chevron-circle-left"></i>
         Go back
       </div>
-      <div *ngFor="let dir of dirs;let i=index" attr.data-tooltip="{{dir.name}}" class="dirname" (click)="openDir(dir.nameEncoded)">
+      <div *ngFor="let dir of dirs;let i=index" attr.data-tooltip="{{dir.name}}" class="dirname" [ngClass]="{'active-folder':dir.name==activeDir}" (click)="openDir(dir)">
         <i class="fas fa-folder folder-icon"></i>
         {{dir.name}}</div>
-      <div *ngFor="let file of files;let i=index" class="filename" (click)="openFile(file.nameEncoded)">
+      <div *ngFor="let file of files;let i=index" class="filename" [ngClass]="{'active-file':file.name==activeFile}" (click)="openFile(file)">
         <i class="fas fa-file file-icon"></i>
         {{file.name}}</div>
     </div>

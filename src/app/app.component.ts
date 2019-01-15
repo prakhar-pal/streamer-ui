@@ -22,13 +22,17 @@ export class AppComponent {
   filesEnc:string[];
   dirsEnc:string[];
   levels:any; // to track number of levels inside the root directory of the app
+  activeDir:string;
+  activeFile:string;
   path:string[];
   serverUrl:string;
   searchForm:FormGroup;
+  rootPath:string;
 
   ngOnInit(){
     this.showPhoto = false;
     this.showVideo = false;
+    this.rootPath = 'f58b739373fe30804177217a493306f7';
     this.levels = -1; 
     //-1 is set for convienience, so that when the this.updateListing() is called for the first time
     //this.levels becomes 0 and incremented for every call to this.updateListing(dir)
@@ -37,9 +41,9 @@ export class AppComponent {
     this.path = [];
     // get file,dir lists
      //update values for levels and path
-     this.levels+=1;
-     this.path.push('ff');
-    this.updateListing('ff'); // 'ff' is encoded root directory name
+    this.levels+=1;
+    this.path.push(this.rootPath);
+    this.updateListing(this.rootPath); // this.rootPath is encoded root directory name
     this.initForm(); //initialize the forms of search
   }
   initForm(){
@@ -48,6 +52,7 @@ export class AppComponent {
     })
   }
   updateListing(dir){
+    console.log(`update listing with ${dir}`);
     /*updates values of files and dirs (and their encoded parts) for given dir*/
     this.http.post(this.urlService.getFilelistUrl(),{dirEnc:dir}).subscribe(
       (success:any)=>{
@@ -62,16 +67,18 @@ export class AppComponent {
       });
   }
   openDir(dir){
-    console.log('open '+dir);
-    this.updateListing(dir);
+    console.log('open '+dir.name);
+    this.updateListing(dir.nameEncoded);
+    this.activeDir = dir.name;
     this.levels+=1;
-    this.path.push(dir);
+    this.path.push(dir.nameEncoded);
   }
-  openFile(vid){
-    console.log('open '+vid);
+  openFile(file){
+    console.log('open '+JSON.stringify(file.nameEncoded));
     this.showVideo = false;
     this.showPhoto = false;
-    this.http.post(this.urlService.getFileUrl(),{fileEnc:vid})
+    this.activeFile = file.name;
+    this.http.post(this.urlService.getFileUrl(),{fileEnc:file.nameEncoded})
     .subscribe((success:any)=>{
       console.log(JSON.stringify(success,null,2));
       switch(success.data.extension){
