@@ -23,7 +23,7 @@
     "@angular/router": "^7.2.15",
     "core-js": "^2.5.4",
     "rxjs": "^6.5.2",
-    "videogular2": "^6.2.2"
+    "videogular2": "^6.4.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.13.9",
