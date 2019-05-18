@@ -24,6 +24,7 @@
             ],
             "styles": [
               "src/assets/css/font-awesome.css",
+              "node_modules/videogular2/fonts/videogular.css",
               "src/styles.css"
             ],
             "scripts": []
