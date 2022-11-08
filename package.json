@@ -25,7 +25,7 @@
     "videogular2": "^6.4.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^0.12.4",
+    "@angular-devkit/build-angular": "^14.2.8",
     "@angular-devkit/schematics": "^7.2.15",
     "@angular/cli": "^7.2.15",
     "@angular/compiler": "^7.2.15",
